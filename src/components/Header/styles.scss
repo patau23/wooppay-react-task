@@ -1,0 +1,59 @@
+.header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  box-shadow: 0px 1px 3px rgb(185, 185, 185);
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 1230px;
+  }
+
+  // &__logo {
+  // }
+
+  // &__button {
+  // }
+}
+
+.catalog-button {
+  width: 150px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: linear-gradient(to right, #4d5ef6, #f64d4d);
+  border-radius: 8px;
+  color: white;
+
+  &:hover {
+    border: 3px double white;
+    background: linear-gradient(to right, #4d5ef6, #f64d4d, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 4s ease infinite;
+  }
+  &:active {
+    border: 3px double rgb(187, 187, 187);
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  // &__prepend-logo {
+  // }
+
+  &__title {
+    font-family: "Nunito", sans-serif;
+  }
+}

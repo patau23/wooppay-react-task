@@ -1,4 +1,4 @@
-const API = process.env.API_WOOPPAY_URL;
+const API = 'https://api.yii2-stage.test.wooppay.com'
 export default {
   getCategories: () => {
     return fetch(`${API}/v1/service-category`);

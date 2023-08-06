@@ -1,15 +1,32 @@
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.6);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+// @keyframes pulse {
+//   0% {
+//     transform: scale(1);
+//   }
+//   50% {
+//     transform: scale(1.6);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
 
-.pulse:hover {
-  animation: pulse 500ms linear;
+// .pulse:hover {
+//   animation: pulse 500ms linear;
+// }
+
+$text-main: #1e1e1e;
+$text-secondary: #6c757d;
+
+$background-main: #ecf4ff;
+$background-secondary: #ecf4ff;
+$background-white: #ffffff;
+
+$gradient-main: linear-gradient(to right, #4d5ef6, #f64d4d);
+$button-main: #2f7af8;
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito&family=Nunito+Sans:opsz@6..12&display=swap");
+
+body {
+  background-color: $background-main;
+  font-family: "Nunito Sans", sans-serif;
 }
