@@ -17,7 +17,7 @@ module.exports = {
     main: path.resolve(__dirname, "src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "build"),
     filename: "[name].bundle.js",
     assetModuleFilename: "assets/[hash][ext]",
   },
@@ -62,7 +62,7 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, "src/assets/img"),
-          to: path.resolve(__dirname, "dist/assets/img"),
+          to: path.resolve(__dirname, "build/assets/img"),
         },
       ],
     }),
