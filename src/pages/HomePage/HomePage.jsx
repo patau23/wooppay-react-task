@@ -119,6 +119,12 @@ function HomePage({}) {
             <ServiceForm
               isActive={state.formStatus}
               service={state.selectedService}
+              closeForm={(e) =>
+                setState((prev) => ({
+                  ...prev,
+                  formStatus: false,
+                }))
+              }
             />
           </article>
         </div>

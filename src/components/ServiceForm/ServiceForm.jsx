@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./styles.scss";
 //
 
-function ServiceForm({ service, isActive }) {
+function ServiceForm({ service, isActive, closeForm }) {
   if (!isActive) {
     return null;
   }
@@ -12,7 +12,7 @@ function ServiceForm({ service, isActive }) {
     <form className="search-form">
       <header className="search-form__header">
         <h1 className="search-form__title">Форма отправки "{service.title}"</h1>
-        <button className="search-form__close-form-btn close-btn" onClick>
+        <button className="search-form__close-form-btn close-btn" onClick={(e) => closeForm(e)}>
           <img
             className="close-btn__icon"
             src="src/assets/img/close-icon.png"
