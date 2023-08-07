@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header.jsx";
 import NavigateMenu from "../../components/NavigateMenu/NavigateMenu.jsx";
 import ServiceCard from "../../components/ServiceCard/ServiceCard.jsx";
 import ServiceForm from "../../components/ServiceForm/ServiceForm.jsx";
+import Loader from "../../components/Loader/Loader.jsx";
 //
 
 function HomePage({}) {
@@ -18,8 +19,6 @@ function HomePage({}) {
     serviceList: [],
     selectedService: null,
   });
-
-  const [formState, setFormState] = useState({});
 
   const getCategories = useCallback(async () => {
     setState((prev) => ({ ...prev, loading: true }));
@@ -75,7 +74,11 @@ function HomePage({}) {
   }, [state.selectedCategory]);
 
   if (state.loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="main-loader">
+          <Loader />
+      </div>
+    );
   }
 
   return (
