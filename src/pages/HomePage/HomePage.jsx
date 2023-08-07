@@ -4,12 +4,15 @@ import api from "../../services/api";
 import "./styles.scss";
 import Header from "../../components/Header/Header.jsx";
 import NavigateMenu from "../../components/NavigateMenu/NavigateMenu.jsx";
+import ServiceCard from "../../components/ServiceCard/ServiceCard.jsx";
+import ServiceForm from "../../components/ServiceForm/ServiceForm.jsx";
 //
 
 function HomePage({}) {
   const [state, setState] = useState({
     loading: false,
-    modal: true,
+    modal: false,
+    formStatus: false,
     categoryList: [],
     selectedCategory: null,
     serviceList: [],
@@ -27,7 +30,7 @@ function HomePage({}) {
         setState((prev) => ({
           ...prev,
           categoryList: res,
-          selectedCategory: res[0],
+          selectedCategory: res[5],
           loading: false,
         }));
       });
@@ -53,6 +56,14 @@ function HomePage({}) {
         loading: false,
       }));
     }
+  };
+
+  const openForm = (service) => {
+    setState((prev) => ({
+      ...prev,
+      formStatus: true,
+      selectedService: service,
+    }));
   };
 
   useEffect(() => {
@@ -85,14 +96,32 @@ function HomePage({}) {
       <Header
         onCatalogClick={() => setState((prev) => ({ ...prev, modal: true }))}
       />
-      <main className="">
-        {state.serviceList.map((service, index) => {
-          return (
-            <li className="" key={"service" + index}>
-              {service.name}
-            </li>
-          );
-        })}
+      <main className="main">
+        <div className="main__wrapper">
+          <article
+            className={
+              state.formStatus
+                ? "main__content main__content_minimized"
+                : "main__content"
+            }
+          >
+            {state.serviceList.map((service, index) => {
+              return (
+                <ServiceCard
+                  key={"service" + index}
+                  service={service}
+                  onBtnClick={(e) => openForm(service)}
+                />
+              );
+            })}
+          </article>
+          <article className="main__form-content">
+            <ServiceForm
+              isActive={state.formStatus}
+              service={state.selectedService}
+            />
+          </article>
+        </div>
       </main>
     </>
   );
